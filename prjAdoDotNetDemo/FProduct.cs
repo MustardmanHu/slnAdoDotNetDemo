@@ -17,13 +17,12 @@ namespace prjAdoDotNetDemo
         {
             InitializeComponent();
         }
-
-        private void button4_Click(object sender, EventArgs e)
+      new  public void  Refresh()
         {
-             SqlConnection con = new SqlConnection
+            SqlConnection con = new SqlConnection
             {
                 ConnectionString = @"Data Source=DESKTOP-EKRVM5K;Initial Catalog=ClassUse;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
-             };
+            };
             con.Open();
             SqlDataAdapter adapter = new SqlDataAdapter("Use ClassUse Select * From tProduct ", con);
             //連接SQL的命令字串
@@ -31,6 +30,10 @@ namespace prjAdoDotNetDemo
             adapter.Fill(DS);
             con.Close();
             dataGridView1.DataSource = DS.Tables[0];
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,13 +44,18 @@ namespace prjAdoDotNetDemo
             if (dataGridView1.DataSource is DataTable table)
             {
                 DataRow row = table.NewRow();
-                row["fName"] = FRM.Names;
-                row["fCost"] = FRM.Cost;
-                row["fQty"] = FRM.Qty;
-                row["fPrice"] = FRM.Price;
+                row["fName"] = FRM.product.產品名稱;
+                row["fCost"] = FRM.product.成本;
+                row["fQty"] = FRM.product.庫存;
+                row["fPrice"] = FRM.product.售價;
                 table.Rows.Add(row);
             }
             else { return; }
+        }
+
+        private void FProduct_Load(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }

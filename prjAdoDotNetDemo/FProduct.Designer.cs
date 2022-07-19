@@ -130,6 +130,7 @@ namespace prjAdoDotNetDemo
             this.Controls.Add(this.panel1);
             this.Name = "FProduct";
             this.Text = "FProduct";
+            this.Load += new System.EventHandler(this.FProduct_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
