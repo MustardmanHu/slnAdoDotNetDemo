@@ -87,6 +87,7 @@ namespace prjAdoDotNetDemo
             this.button3.TabIndex = 19;
             this.button3.Text = "修改";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -98,6 +99,7 @@ namespace prjAdoDotNetDemo
             this.button2.TabIndex = 18;
             this.button2.Text = "刪除";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -120,6 +122,7 @@ namespace prjAdoDotNetDemo
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(620, 450);
             this.dataGridView1.TabIndex = 15;
+            this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
             // FProduct
             // 

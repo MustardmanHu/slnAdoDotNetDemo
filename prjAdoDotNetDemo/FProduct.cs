@@ -13,11 +13,12 @@ namespace prjAdoDotNetDemo
 {
     public partial class FProduct : Form
     {
+        private int _position = -1;
         public FProduct()
         {
             InitializeComponent();
         }
-      new  public void  Refresh()
+        new public void Refresh()
         {
             SqlConnection con = new SqlConnection
             {
@@ -41,13 +42,14 @@ namespace prjAdoDotNetDemo
             FrmProductEditor FRM = new FrmProductEditor();
             FRM.ShowDialog();
             //將dataGridView1.DataSource轉型為DT
-            if (dataGridView1.DataSource is DataTable table)
+            if (dataGridView1.DataSource is DataTable table && FRM.product != null)
             {
+                CProduct CP = FRM.product;
                 DataRow row = table.NewRow();
-                row["fName"] = FRM.product.產品名稱;
-                row["fCost"] = FRM.product.成本;
-                row["fQty"] = FRM.product.庫存;
-                row["fPrice"] = FRM.product.售價;
+                row["fName"] = CP.產品名稱;
+                row["fCost"] = CP.成本;
+                row["fQty"] = CP.庫存;
+                row["fPrice"] = CP.售價;
                 table.Rows.Add(row);
             }
             else { return; }
@@ -56,6 +58,41 @@ namespace prjAdoDotNetDemo
         private void FProduct_Load(object sender, EventArgs e)
         {
             Refresh();
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            _position = e.RowIndex;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (_position < 0) { return; }
+            DataTable table = dataGridView1.DataSource as DataTable;
+            DataRow row = table.Rows[_position];
+            CProduct CP = new CProduct();
+            {
+                CP.產品名稱 = row["fName"].ToString();
+                CP.售價 = (decimal)row["fPrice"];
+                CP.庫存 = (int)row["fQty"];
+                CP.成本 = (decimal)row["fCost"];
+            }
+            FrmProductEditor FRM = new FrmProductEditor
+            {
+                product = CP
+            };
+            FRM.ShowDialog();
+            row["fName"] = FRM.product.產品名稱;
+            row["fPrice"] = FRM.product.售價;
+            row["fQty"] = FRM.product.庫存;
+            row["fCost"] = FRM.product.成本;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataTable table = dataGridView1.DataSource as DataTable;
+            DataRow row = table.Rows[_position];
+            row.Delete();
         }
     }
 }
