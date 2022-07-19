@@ -36,12 +36,14 @@ namespace prjAdoDotNetDemo
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
@@ -58,18 +60,19 @@ namespace prjAdoDotNetDemo
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button5.Location = new System.Drawing.Point(19, 387);
+            this.button5.Location = new System.Drawing.Point(19, 323);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(140, 40);
             this.button5.TabIndex = 21;
             this.button5.Text = "查詢";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(19, 296);
+            this.button4.Location = new System.Drawing.Point(19, 248);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(140, 40);
             this.button4.TabIndex = 20;
@@ -81,7 +84,7 @@ namespace prjAdoDotNetDemo
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button3.Location = new System.Drawing.Point(19, 205);
+            this.button3.Location = new System.Drawing.Point(19, 173);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(140, 40);
             this.button3.TabIndex = 19;
@@ -93,7 +96,7 @@ namespace prjAdoDotNetDemo
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(19, 114);
+            this.button2.Location = new System.Drawing.Point(19, 98);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(140, 40);
             this.button2.TabIndex = 18;
@@ -124,6 +127,18 @@ namespace prjAdoDotNetDemo
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button6.Location = new System.Drawing.Point(19, 398);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(140, 40);
+            this.button6.TabIndex = 22;
+            this.button6.Text = "登錄";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // FProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -133,6 +148,7 @@ namespace prjAdoDotNetDemo
             this.Controls.Add(this.panel1);
             this.Name = "FProduct";
             this.Text = "FProduct";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FProduct_FormClosed);
             this.Load += new System.EventHandler(this.FProduct_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -149,5 +165,6 @@ namespace prjAdoDotNetDemo
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button6;
     }
 }

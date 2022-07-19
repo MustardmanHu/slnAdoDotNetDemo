@@ -46,6 +46,7 @@ namespace prjAdoDotNetDemo
             {
                 try
                 {
+                    _product.ID = Convert.ToInt32(txtID.Text);
                     _product.成本 = Convert.ToDecimal(txtCost.Text);
                     _product.產品名稱 = txtName.Text;
                     _product.庫存 = Convert.ToInt32(txtQty.Text);
@@ -60,11 +61,17 @@ namespace prjAdoDotNetDemo
             set
             {
                 _product = value;
+                txtID.Text = _product.ID.ToString();
                 txtPrice.Text = _product.售價.ToString();
                 txtName.Text = _product.產品名稱;
                 txtCost.Text = _product.成本.ToString();
                 txtQty.Text = _product.庫存.ToString();
             }
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
